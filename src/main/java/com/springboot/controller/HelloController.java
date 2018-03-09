@@ -38,6 +38,8 @@ public class HelloController {
     public Map<String,Object> findByPage(@RequestParam Integer page, @RequestParam Integer rows){
         Thread thread = new Thread(()->{
             System.out.println("================");
+
+            
         });
         thread.start();
         Map<String, Object> byPage = noticeService.findByPage(page, rows);

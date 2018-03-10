@@ -3,6 +3,8 @@ package com.springboot.controller;
 import com.springboot.pojo.Notice;
 import com.springboot.service.NoticeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -36,12 +38,6 @@ public class HelloController {
 
     @PostMapping("/findByPage")
     public Map<String,Object> findByPage(@RequestParam Integer page, @RequestParam Integer rows){
-        Thread thread = new Thread(()->{
-            System.out.println("================");
-
-            
-        });
-        thread.start();
         Map<String, Object> byPage = noticeService.findByPage(page, rows);
         return byPage;
     }
